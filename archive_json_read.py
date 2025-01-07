@@ -8,7 +8,7 @@ ext_dict = {
     "python3" : ".py",
     "python" : ".py",
     "text" : ".txt",
-    "[\"html\", \"js\", \"css\"]" : ".txt",
+    "[\"html\", \"js\", \"css\"]" : ".html",
     "mysql" : ".sql",
     "cobol" : ".cob",
     "oracle" : ".sql",
