@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 
 ext_dict = {
@@ -24,13 +25,15 @@ if __name__ == "__main__":
             lang = k["language"].replace("[", "").replace("]", "").replace("\\", "").replace(" ", "_").replace(",", "").replace("\"", "")
             c_name = k["challenge"].lower().replace(" ", "_") + ext_dict[k["language"]]
             if lang not in type_dict.keys():
-                type_dict[lang] = [(c_name, k["code"])]
+                type_dict[lang] = {c_name : k["code"]}
             else:
-                if c_name not in type_dict[lang]:
-                    type_dict[lang] += [(c_name, k["code"])]
+                if c_name not in type_dict[lang].keys():
+                    type_dict[lang][c_name] = k["code"]
                 else:
-                    type_dict[lang] += [(c_name + str(type_dict[lang].count(c_name)), k["code"])]
-        print(json.dumps(type_dict, indent=4))
+                    c_name_num = k["challenge"].lower().replace(" ", "_") + str(len(re.findall(c_name, str(type_dict[lang].keys())))) + ext_dict[k["language"]]
+                    type_dict[lang][c_name_num] = k["code"]
+                    #type_dict[lang][c_name + str(type_dict[lang].count(c_name)), k["code"])]
+        print(json.dumps(type_dict["javascript"], indent=4))
         
         ### make dirs
 

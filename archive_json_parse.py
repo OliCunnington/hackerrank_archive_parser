@@ -36,4 +36,13 @@ contains() > 1
 
 tuple for challenge name (with ext) and code breaks the increment for duplicate challenge submissions
 
+dict wont work since keys().count wont return correct
+    - seperate arrays?
+    []
+    []
+    with a link between indecies?
+
+    maybe dict with regex?
+        count(name + "*") ?
+
 '''
