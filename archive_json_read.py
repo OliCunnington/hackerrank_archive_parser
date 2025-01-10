@@ -32,7 +32,6 @@ if __name__ == "__main__":
                 else:
                     c_name_num = k["challenge"].lower().replace(" ", "_") + str(len(re.findall(c_name, str(type_dict[lang].keys())))) + ext_dict[k["language"]]
                     type_dict[lang][c_name_num] = k["code"]
-                    #type_dict[lang][c_name + str(type_dict[lang].count(c_name)), k["code"])]
         print(json.dumps(type_dict["javascript"], indent=4))
         
         ### make dirs
